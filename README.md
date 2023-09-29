@@ -17,5 +17,3 @@ Idea 1: Compare ticket resale websites for the lowest price
 Idea 2: Create an interface for GPT that allows text to speech and speech to text
 
 Idea 3: get stock news and pass into GPT for sentiment analysis, generate prediction
-
-Optimize hub courses

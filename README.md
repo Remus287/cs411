@@ -1,19 +1,43 @@
-# cs411
-a team project repo for cs411 fall 2023
+# Tasks:
 
-**Tasks:**
+1. **Project Planning and Requirements Gathering**
+   - [x] Define the project's scope and objectives.
+   - [ ] Define detailed requirements for the website, including specific features and functionalities, layout, etc.
 
-Find a suitable project that meets the requirements outlined for a cs411 project
+2. **Technology Stack Selection**
+   - [ ] Decide on the programming languages, frameworks, and libraries to be used (RESTful interface).
 
-a written overview of both of your team's ideas, one paragraph per idea
+3. **Database Design**
+   - [ ] Design the database schema to accommodate user preferences and historical data storage.
 
-docs folder in repo that holds team assignments
+4. **Web Development**
+   - [ ] Create a minimal front-end using HTML, CSS, and JavaScript.
+   - [ ] Develop the back-end using the chosen framework (e.g., Flask, Django, Node.js).
+   - [ ] Implement user registration and login functionality.
 
+5. **User Input and Data Retrieval**
+   - [ ] Design a user-friendly interface for users to input their stock lists, or we iterate a subset of stocks.
+   - [ ] Implement a periodic data retrieval mechanism to fetch stock data from selected APIs.
 
+6. **Stock Retrieval**
+   - [ ] Get user input and generate basic stock information
+  
+7. **News Retrieval**
+   - [ ] Set up a process to fetch news articles related to the selected stocks from a news API.
 
+8. **Sentiment Analysis**
+   - [ ] Preprocess news data and pass it through a GPT-based sentiment analysis API.
+   - [ ] Store the sentiment analysis results in the database.
 
-Idea 1: Compare ticket resale websites for the lowest price
+9. **Stock Prediction Algorithm**
+   - [ ] Develop a prediction algorithm that considers historical stock data and sentiment analysis results to generate stock predictions (rise or fall).
 
-Idea 2: Create an interface for GPT that allows text to speech and speech to text
+10. **Notification System**
+    - [ ] Integrate a notification system to inform users of stock updates and predictions.
+    - [ ] Utilize Twilio for SMS notifications or web push notifications for browsers.
 
-Idea 3: get stock news and pass into GPT for sentiment analysis, generate prediction
+11. **User Interface**
+    - [ ] Design and implement a fully fleshed-out user-friendly interface for every feature
+
+12. **Deployment**
+    - [ ] We may or may not get to this

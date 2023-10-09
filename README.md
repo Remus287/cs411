@@ -1,25 +1,25 @@
 # Tasks:
 
 1. **Project Planning and Requirements Gathering**
-   - [x]Define the project's scope and objectives.
+   - [x] Define the project's scope and objectives.
    - Define detailed requirements for the website, including specific features and functionalities, layout, etc.
 
 2. **Technology Stack Selection**
    - Decide on the programming languages, frameworks, and libraries to be used (RESTful interface).
 
-4. **Database Design**
+3. **Database Design**
    - Design the database schema to accommodate user preferences and historical data storage.
 
-5. **Web Development**
+4. **Web Development**
    - Create a minimal front-end using HTML, CSS, and JavaScript.
    - Develop the back-end using the chosen framework (e.g., Flask, Django, Node.js).
    - Implement user registration and login functionality.
 
-6. **User Input and Data Retrieval**
+5. **User Input and Data Retrieval**
    - Design a user-friendly interface for users to input their stock lists.
    - Implement a periodic data retrieval mechanism to fetch stock data from selected APIs.
 
-7. **Stock Retrieval**
+6. **Stock Retrieval**
    - Get user input and generate basic stock information
   
 7. **News Retrieval**

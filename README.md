@@ -1,6 +1,6 @@
 # Tasks:
 
-1. **Project Planning and Requirements Gathering**:
+1. **Project Planning and Requirements Gathering:**
    - Define the project's scope and objectives.
    - Define detailed requirements for the website, including specific features and functionalities, layout, etc.
 

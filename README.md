@@ -16,7 +16,7 @@
    - [ ] Implement user registration and login functionality.
 
 5. **User Input and Data Retrieval**
-   - [ ] Design a user-friendly interface for users to input their stock lists.
+   - [ ] Design a user-friendly interface for users to input their stock lists, or we iterate a subset of stocks.
    - [ ] Implement a periodic data retrieval mechanism to fetch stock data from selected APIs.
 
 6. **Stock Retrieval**

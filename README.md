@@ -11,26 +11,26 @@
    - [ ] Design the database schema to accommodate user preferences and historical data storage.
 
 4. **Web Development**
-   - [ ] Create a minimal front-end using HTML, CSS, and JavaScript.
-   - [ ] Develop the back-end using the chosen framework (e.g., Flask, Django, Node.js).
-   - [ ] Implement user registration and login functionality.
+   - [X] Create a minimal front-end using HTML, CSS, and JavaScript.
+   - [X] Develop the back-end using the chosen framework (e.g., Flask, Django, Node.js).  -- Currently using Flask, subject to change
+   - [X] Implement user registration and login functionality.  --  Currently local auth, will need to use google auth instead later on
 
 5. **User Input and Data Retrieval**
    - [ ] Design a user-friendly interface for users to input their stock lists, or we iterate a subset of stocks.
    - [ ] Implement a periodic data retrieval mechanism to fetch stock data from selected APIs.
 
 6. **Stock Retrieval**
-   - [ ] Get user input and generate basic stock information
+   - [X] Get user input and generate basic stock information
   
 7. **News Retrieval**
-   - [ ] Set up a process to fetch news articles related to the selected stocks from a news API.
+   - [X] Set up a process to fetch news articles related to the selected stocks from a news API.
 
 8. **Sentiment Analysis**
-   - [ ] Preprocess news data and pass it through a GPT-based sentiment analysis API.
+   - [X] Preprocess news data and pass it through a GPT-based sentiment analysis API.
    - [ ] Store the sentiment analysis results in the database.
 
 9. **Stock Prediction Algorithm**
-   - [ ] Develop a prediction algorithm that considers historical stock data and sentiment analysis results to generate stock predictions (rise or fall).
+   - [x] Develop a prediction algorithm that considers historical stock data and sentiment analysis results to generate stock predictions (rise or fall).
 
 10. **Notification System**
     - [ ] Integrate a notification system to inform users of stock updates and predictions.

@@ -5,7 +5,7 @@
    - [ ] Define detailed requirements for the website, including specific features and functionalities, layout, etc.
 
 2. **Technology Stack Selection**
-   - [-] Decide on the programming languages, frameworks, and libraries to be used (RESTful interface).
+   - [o] Decide on the programming languages, frameworks, and libraries to be used (RESTful interface).
 
 3. **Database Design**
    - [-] Design the database schema to accommodate user preferences and historical data storage.

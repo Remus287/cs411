@@ -5,32 +5,32 @@
    - [ ] Define detailed requirements for the website, including specific features and functionalities, layout, etc.
 
 2. **Technology Stack Selection**
-   - [ ] Decide on the programming languages, frameworks, and libraries to be used (RESTful interface).
+   - [-] Decide on the programming languages, frameworks, and libraries to be used (RESTful interface).
 
 3. **Database Design**
-   - [ ] Design the database schema to accommodate user preferences and historical data storage.
+   - [-] Design the database schema to accommodate user preferences and historical data storage.
 
 4. **Web Development**
-   - [X] Create a minimal front-end using HTML, CSS, and JavaScript.
-   - [X] Develop the back-end using the chosen framework (e.g., Flask, Django, Node.js).  -- Currently using Flask, subject to change
-   - [X] Implement user registration and login functionality.  --  Currently local auth, will need to use google auth instead later on
+   - [-] Create a minimal front-end using HTML, CSS, and JavaScript.
+   - [-] Develop the back-end using the chosen framework (e.g., Flask, Django, Node.js).  -- Currently using Flask, subject to change
+   - [-] Implement user registration and login functionality.  --  Currently local auth, will need to use google auth instead later on
 
 5. **User Input and Data Retrieval**
    - [ ] Design a user-friendly interface for users to input their stock lists, or we iterate a subset of stocks.
    - [ ] Implement a periodic data retrieval mechanism to fetch stock data from selected APIs.
 
 6. **Stock Retrieval**
-   - [X] Get user input and generate basic stock information
+   - [-] Get user input and generate basic stock information
   
 7. **News Retrieval**
-   - [X] Set up a process to fetch news articles related to the selected stocks from a news API.
+   - [-] Set up a process to fetch news articles related to the selected stocks from a news API.
 
 8. **Sentiment Analysis**
    - [X] Preprocess news data and pass it through a GPT-based sentiment analysis API.
    - [ ] Store the sentiment analysis results in the database.
 
 9. **Stock Prediction Algorithm**
-   - [x] Develop a prediction algorithm that considers historical stock data and sentiment analysis results to generate stock predictions (rise or fall).
+   - [-] Develop a prediction algorithm that considers historical stock data and sentiment analysis results to generate stock predictions (rise or fall).
 
 10. **Notification System**
     - [ ] Integrate a notification system to inform users of stock updates and predictions.

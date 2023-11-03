@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Flask App with JavaScript</title>
+</head>
+<body>
+    <h1>Click the button to change this text</h1>
+    <button id="fontSizeButton">Show Font Size</button>
+    <button id="changeTextButton">Change Text</button>
+    <p id="displayText">This text will change</p>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

@@ -1,4 +1,6 @@
-# Tasks:
+# Project Workboard:
+
+- [x] = Complete, - [-] = In Progress, - [ ] = Not Started
 
 1. **Project Planning and Requirements Gathering**
    - [x] Define the project's scope and objectives.

@@ -1,0 +1,607 @@
+{
+    "result": [
+        {
+            "symbol": "III.L",
+            "name": "3I GROUP PLC ORD 73 19/22P",
+            "exchange": "LSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/III.L/chart?p=III.L"
+        },
+        {
+            "symbol": "MMM",
+            "name": "3M Company",
+            "exchange": "NYSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/MMM/chart?p=MMM"
+        },
+        {
+            "symbol": "EEENF",
+            "name": "88 ENERGY LIMITED",
+            "exchange": "Other OTC",
+            "yahooChartLink": "https://finance.yahoo.com/quote/EEENF/chart?p=EEENF"
+        },
+        {
+            "symbol": "AAC.ST",
+            "name": "AAC Clyde Space AB",
+            "exchange": "Stockholm",
+            "yahooChartLink": "https://finance.yahoo.com/quote/AAC.ST/chart?p=AAC.ST"
+        },
+        {
+            "symbol": "ABB.ST",
+            "name": "ABB Ltd",
+            "exchange": "Stockholm",
+            "yahooChartLink": "https://finance.yahoo.com/quote/ABB.ST/chart?p=ABB.ST"
+        },
+        {
+            "symbol": "ABDN.L",
+            "name": "ABRDN PLC ORD 13 61/63P",
+            "exchange": "LSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/ABDN.L/chart?p=ABDN.L"
+        },
+        {
+            "symbol": "ADMA",
+            "name": "ADMA Biologics Inc",
+            "exchange": "NasdaqGM",
+            "yahooChartLink": "https://finance.yahoo.com/quote/ADMA/chart?p=ADMA"
+        },
+        {
+            "symbol": "ADM.L",
+            "name": "ADMIRAL GROUP PLC ORD 0.1P",
+            "exchange": "LSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/ADM.L/chart?p=ADM.L"
+        },
+        {
+            "symbol": "AGNC",
+            "name": "AGNC Investment Corp.",
+            "exchange": "NasdaqGS",
+            "yahooChartLink": "https://finance.yahoo.com/quote/AGNC/chart?p=AGNC"
+        },
+        {
+            "symbol": "AIBG.L",
+            "name": "AIB GROUP PLC ORD EUR0.625 (CDI",
+            "exchange": "LSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/AIBG.L/chart?p=AIBG.L"
+        },
+        {
+            "symbol": "AAF.L",
+            "name": "AIRTEL AFRICA PLC ORD USD0.50",
+            "exchange": "LSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/AAF.L/chart?p=AAF.L"
+        },
+        {
+            "symbol": "AJB.L",
+            "name": "AJ BELL PLC ORD GBP0.000125",
+            "exchange": "LSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/AJB.L/chart?p=AJB.L"
+        },
+        {
+            "symbol": "ATT.L",
+            "name": "ALLIANZ TECHNOLOGY TRUST PLC OR",
+            "exchange": "LSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/ATT.L/chart?p=ATT.L"
+        },
+        {
+            "symbol": "AWE.L",
+            "name": "ALPHAWAVE IP GROUP PLC ORD GBP0",
+            "exchange": "LSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/AWE.L/chart?p=AWE.L"
+        },
+        {
+            "symbol": "APE",
+            "name": "AMC Entertainment Holdings, Inc",
+            "exchange": "NYSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/APE/chart?p=APE"
+        },
+        {
+            "symbol": "AMC",
+            "name": "AMC Entertainment Holdings, Inc",
+            "exchange": "NYSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/AMC/chart?p=AMC"
+        },
+        {
+            "symbol": "AAL.L",
+            "name": "ANGLO AMERICAN PLC ORD USD0.549",
+            "exchange": "LSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/AAL.L/chart?p=AAL.L"
+        },
+        {
+            "symbol": "ANTO.L",
+            "name": "ANTOFAGASTA PLC ORD 5P",
+            "exchange": "LSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/ANTO.L/chart?p=ANTO.L"
+        },
+        {
+            "symbol": "APA",
+            "name": "APA Corporation",
+            "exchange": "NasdaqGS",
+            "yahooChartLink": "https://finance.yahoo.com/quote/APA/chart?p=APA"
+        },
+        {
+            "symbol": "ARR",
+            "name": "ARMOUR Residential REIT, Inc.",
+            "exchange": "NYSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/ARR/chart?p=ARR"
+        },
+        {
+            "symbol": "ASCL.L",
+            "name": "ASCENTIAL PLC ORD 1P",
+            "exchange": "LSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/ASCL.L/chart?p=ASCL.L"
+        },
+        {
+            "symbol": "ASX",
+            "name": "ASE Technology Holding Co., Ltd",
+            "exchange": "NYSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/ASX/chart?p=ASX"
+        },
+        {
+            "symbol": "ASHM.L",
+            "name": "ASHMORE GROUP PLC ORD 0.01P",
+            "exchange": "LSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/ASHM.L/chart?p=ASHM.L"
+        },
+        {
+            "symbol": "AHT.L",
+            "name": "ASHTEAD GROUP PLC ORD 10P",
+            "exchange": "LSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/AHT.L/chart?p=AHT.L"
+        },
+        {
+            "symbol": "ASC.L",
+            "name": "ASOS PLC ORD 3.5P",
+            "exchange": "LSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/ASC.L/chart?p=ASC.L"
+        },
+        {
+            "symbol": "ASSA-B.ST",
+            "name": "ASSA ABLOY AB ser. B",
+            "exchange": "Stockholm",
+            "yahooChartLink": "https://finance.yahoo.com/quote/ASSA-B.ST/chart?p=ASSA-B.ST"
+        },
+        {
+            "symbol": "ABF.L",
+            "name": "ASSOCIATED BRITISH FOODS PLC OR",
+            "exchange": "LSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/ABF.L/chart?p=ABF.L"
+        },
+        {
+            "symbol": "AGR.L",
+            "name": "ASSURA PLC ORD 10P",
+            "exchange": "LSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/AGR.L/chart?p=AGR.L"
+        },
+        {
+            "symbol": "AML.L",
+            "name": "ASTON MARTIN LAGONDA GLOBAL HOL",
+            "exchange": "LSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/AML.L/chart?p=AML.L"
+        },
+        {
+            "symbol": "AZN.L",
+            "name": "ASTRAZENECA PLC ORD SHS $0.25",
+            "exchange": "LSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/AZN.L/chart?p=AZN.L"
+        },
+        {
+            "symbol": "AUTO.L",
+            "name": "AUTO TRADER GROUP PLC ORD 1P",
+            "exchange": "LSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/AUTO.L/chart?p=AUTO.L"
+        },
+        {
+            "symbol": "AGT.L",
+            "name": "AVI GLOBAL TRUST PLC ORD 2P",
+            "exchange": "LSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/AGT.L/chart?p=AGT.L"
+        },
+        {
+            "symbol": "AV.L",
+            "name": "AVIVA PLC ORD 32 17/19P",
+            "exchange": "LSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/AV.L/chart?p=AV.L"
+        },
+        {
+            "symbol": "ABBV",
+            "name": "AbbVie Inc.",
+            "exchange": "NYSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/ABBV/chart?p=ABBV"
+        },
+        {
+            "symbol": "ABT",
+            "name": "Abbott Laboratories",
+            "exchange": "NYSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/ABT/chart?p=ABT"
+        },
+        {
+            "symbol": "ABLI.ST",
+            "name": "Abliva AB",
+            "exchange": "Stockholm",
+            "yahooChartLink": "https://finance.yahoo.com/quote/ABLI.ST/chart?p=ABLI.ST"
+        },
+        {
+            "symbol": "ATVI",
+            "name": "Activision Blizzard, Inc",
+            "exchange": "NasdaqGS",
+            "yahooChartLink": "https://finance.yahoo.com/quote/ATVI/chart?p=ATVI"
+        },
+        {
+            "symbol": "AMD",
+            "name": "Advanced Micro Devices, Inc.",
+            "exchange": "NasdaqGS",
+            "yahooChartLink": "https://finance.yahoo.com/quote/AMD/chart?p=AMD"
+        },
+        {
+            "symbol": "AFRM",
+            "name": "Affirm Holdings, Inc.",
+            "exchange": "NasdaqGS",
+            "yahooChartLink": "https://finance.yahoo.com/quote/AFRM/chart?p=AFRM"
+        },
+        {
+            "symbol": "AOI.ST",
+            "name": "Africa Oil Corp.",
+            "exchange": "Stockholm",
+            "yahooChartLink": "https://finance.yahoo.com/quote/AOI.ST/chart?p=AOI.ST"
+        },
+        {
+            "symbol": "AGEN",
+            "name": "Agenus Inc.",
+            "exchange": "NasdaqCM",
+            "yahooChartLink": "https://finance.yahoo.com/quote/AGEN/chart?p=AGEN"
+        },
+        {
+            "symbol": "ABNB",
+            "name": "Airbnb, Inc.",
+            "exchange": "NasdaqGS",
+            "yahooChartLink": "https://finance.yahoo.com/quote/ABNB/chart?p=ABNB"
+        },
+        {
+            "symbol": "AGI",
+            "name": "Alamos Gold Inc.",
+            "exchange": "NYSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/AGI/chart?p=AGI"
+        },
+        {
+            "symbol": "ALFA.ST",
+            "name": "Alfa Laval AB",
+            "exchange": "Stockholm",
+            "yahooChartLink": "https://finance.yahoo.com/quote/ALFA.ST/chart?p=ALFA.ST"
+        },
+        {
+            "symbol": "AQN",
+            "name": "Algonquin Power & Utilities Cor",
+            "exchange": "NYSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/AQN/chart?p=AQN"
+        },
+        {
+            "symbol": "BABA",
+            "name": "Alibaba Group Holding Limited",
+            "exchange": "NYSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/BABA/chart?p=BABA"
+        },
+        {
+            "symbol": "ALLEI.ST",
+            "name": "Alleima AB",
+            "exchange": "Stockholm",
+            "yahooChartLink": "https://finance.yahoo.com/quote/ALLEI.ST/chart?p=ALLEI.ST"
+        },
+        {
+            "symbol": "ATORX.ST",
+            "name": "Alligator Bioscience AB",
+            "exchange": "Stockholm",
+            "yahooChartLink": "https://finance.yahoo.com/quote/ATORX.ST/chart?p=ATORX.ST"
+        },
+        {
+            "symbol": "ALLY",
+            "name": "Ally Financial Inc.",
+            "exchange": "NYSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/ALLY/chart?p=ALLY"
+        },
+        {
+            "symbol": "GOOGL",
+            "name": "Alphabet Inc.",
+            "exchange": "NasdaqGS",
+            "yahooChartLink": "https://finance.yahoo.com/quote/GOOGL/chart?p=GOOGL"
+        },
+        {
+            "symbol": "GOOG",
+            "name": "Alphabet Inc.",
+            "exchange": "NasdaqGS",
+            "yahooChartLink": "https://finance.yahoo.com/quote/GOOG/chart?p=GOOG"
+        },
+        {
+            "symbol": "ATUS",
+            "name": "Altice USA, Inc.",
+            "exchange": "NYSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/ATUS/chart?p=ATUS"
+        },
+        {
+            "symbol": "MO",
+            "name": "Altria Group, Inc.",
+            "exchange": "NYSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/MO/chart?p=MO"
+        },
+        {
+            "symbol": "AMRN",
+            "name": "Amarin Corporation plc",
+            "exchange": "NasdaqGM",
+            "yahooChartLink": "https://finance.yahoo.com/quote/AMRN/chart?p=AMRN"
+        },
+        {
+            "symbol": "AMZN",
+            "name": "Amazon.com, Inc.",
+            "exchange": "NasdaqGS",
+            "yahooChartLink": "https://finance.yahoo.com/quote/AMZN/chart?p=AMZN"
+        },
+        {
+            "symbol": "ABEV",
+            "name": "Ambev S.A.",
+            "exchange": "NYSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/ABEV/chart?p=ABEV"
+        },
+        {
+            "symbol": "AMCR",
+            "name": "Amcor plc",
+            "exchange": "NYSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/AMCR/chart?p=AMCR"
+        },
+        {
+            "symbol": "AAL",
+            "name": "American Airlines Group, Inc.",
+            "exchange": "NasdaqGS",
+            "yahooChartLink": "https://finance.yahoo.com/quote/AAL/chart?p=AAL"
+        },
+        {
+            "symbol": "AEO",
+            "name": "American Eagle Outfitters, Inc.",
+            "exchange": "NYSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/AEO/chart?p=AEO"
+        },
+        {
+            "symbol": "AXP",
+            "name": "American Express Company",
+            "exchange": "NYSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/AXP/chart?p=AXP"
+        },
+        {
+            "symbol": "AIG",
+            "name": "American International Group, I",
+            "exchange": "NYSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/AIG/chart?p=AIG"
+        },
+        {
+            "symbol": "AMRS",
+            "name": "Amyris, Inc.",
+            "exchange": "NasdaqGS",
+            "yahooChartLink": "https://finance.yahoo.com/quote/AMRS/chart?p=AMRS"
+        },
+        {
+            "symbol": "ADI",
+            "name": "Analog Devices, Inc.",
+            "exchange": "NasdaqGS",
+            "yahooChartLink": "https://finance.yahoo.com/quote/ADI/chart?p=ADI"
+        },
+        {
+            "symbol": "NLY",
+            "name": "Annaly Capital Management Inc.",
+            "exchange": "NYSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/NLY/chart?p=NLY"
+        },
+        {
+            "symbol": "AR",
+            "name": "Antero Resources Corporation",
+            "exchange": "NYSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/AR/chart?p=AR"
+        },
+        {
+            "symbol": "AAPL",
+            "name": "Apple Inc.",
+            "exchange": "NasdaqGS",
+            "yahooChartLink": "https://finance.yahoo.com/quote/AAPL/chart?p=AAPL"
+        },
+        {
+            "symbol": "AMAT",
+            "name": "Applied Materials, Inc.",
+            "exchange": "NasdaqGS",
+            "yahooChartLink": "https://finance.yahoo.com/quote/AMAT/chart?p=AMAT"
+        },
+        {
+            "symbol": "APP",
+            "name": "Applovin Corporation",
+            "exchange": "NasdaqGS",
+            "yahooChartLink": "https://finance.yahoo.com/quote/APP/chart?p=APP"
+        },
+        {
+            "symbol": "ARCANE.ST",
+            "name": "Arcane Crypto AB",
+            "exchange": "Stockholm",
+            "yahooChartLink": "https://finance.yahoo.com/quote/ARCANE.ST/chart?p=ARCANE.ST"
+        },
+        {
+            "symbol": "ADM",
+            "name": "Archer-Daniels-Midland Company",
+            "exchange": "NYSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/ADM/chart?p=ADM"
+        },
+        {
+            "symbol": "ARDX",
+            "name": "Ardelyx, Inc.",
+            "exchange": "NasdaqGM",
+            "yahooChartLink": "https://finance.yahoo.com/quote/ARDX/chart?p=ARDX"
+        },
+        {
+            "symbol": "ARJO-B.ST",
+            "name": "Arjo AB ser. B",
+            "exchange": "Stockholm",
+            "yahooChartLink": "https://finance.yahoo.com/quote/ARJO-B.ST/chart?p=ARJO-B.ST"
+        },
+        {
+            "symbol": "ARRY",
+            "name": "Array Technologies, Inc.",
+            "exchange": "NasdaqGM",
+            "yahooChartLink": "https://finance.yahoo.com/quote/ARRY/chart?p=ARRY"
+        },
+        {
+            "symbol": "ARVL",
+            "name": "Arrival",
+            "exchange": "NasdaqGS",
+            "yahooChartLink": "https://finance.yahoo.com/quote/ARVL/chart?p=ARVL"
+        },
+        {
+            "symbol": "ASAN",
+            "name": "Asana, Inc.",
+            "exchange": "NYSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/ASAN/chart?p=ASAN"
+        },
+        {
+            "symbol": "AZN",
+            "name": "Astrazeneca PLC",
+            "exchange": "NasdaqGS",
+            "yahooChartLink": "https://finance.yahoo.com/quote/AZN/chart?p=AZN"
+        },
+        {
+            "symbol": "ATCO-A.ST",
+            "name": "Atlas Copco AB ser. A",
+            "exchange": "Stockholm",
+            "yahooChartLink": "https://finance.yahoo.com/quote/ATCO-A.ST/chart?p=ATCO-A.ST"
+        },
+        {
+            "symbol": "ATCO-B.ST",
+            "name": "Atlas Copco AB ser. B",
+            "exchange": "Stockholm",
+            "yahooChartLink": "https://finance.yahoo.com/quote/ATCO-B.ST/chart?p=ATCO-B.ST"
+        },
+        {
+            "symbol": "TEAM",
+            "name": "Atlassian Corporation",
+            "exchange": "NasdaqGS",
+            "yahooChartLink": "https://finance.yahoo.com/quote/TEAM/chart?p=TEAM"
+        },
+        {
+            "symbol": "ACB",
+            "name": "Aurora Cannabis Inc.",
+            "exchange": "NasdaqGS",
+            "yahooChartLink": "https://finance.yahoo.com/quote/ACB/chart?p=ACB"
+        },
+        {
+            "symbol": "AVTR",
+            "name": "Avantor, Inc.",
+            "exchange": "NYSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/AVTR/chart?p=AVTR"
+        },
+        {
+            "symbol": "AZA.ST",
+            "name": "Avanza Bank Holding AB",
+            "exchange": "Stockholm",
+            "yahooChartLink": "https://finance.yahoo.com/quote/AZA.ST/chart?p=AZA.ST"
+        },
+        {
+            "symbol": "BME.L",
+            "name": "B&M EUROPEAN VALUE RETAIL S.A. ",
+            "exchange": "LSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/BME.L/chart?p=BME.L"
+        },
+        {
+            "symbol": "BTG",
+            "name": "B2Gold Corp",
+            "exchange": "NYSE American",
+            "yahooChartLink": "https://finance.yahoo.com/quote/BTG/chart?p=BTG"
+        },
+        {
+            "symbol": "BAB.L",
+            "name": "BABCOCK INTERNATIONAL GROUP PLC",
+            "exchange": "LSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/BAB.L/chart?p=BAB.L"
+        },
+        {
+            "symbol": "BA.L",
+            "name": "BAE SYSTEMS PLC ORD 2.5P",
+            "exchange": "LSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/BA.L/chart?p=BA.L"
+        },
+        {
+            "symbol": "BCPT.L",
+            "name": "BALANCED COMMERCIAL PROPERTY TR",
+            "exchange": "LSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/BCPT.L/chart?p=BCPT.L"
+        },
+        {
+            "symbol": "BBY.L",
+            "name": "BALFOUR BEATTY PLC ORD 50P",
+            "exchange": "LSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/BBY.L/chart?p=BBY.L"
+        },
+        {
+            "symbol": "BNC.L",
+            "name": "BANCO SANTANDER S.A. ORD EUR0.5",
+            "exchange": "LSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/BNC.L/chart?p=BNC.L"
+        },
+        {
+            "symbol": "BNKR.L",
+            "name": "BANKERS INVESTMENT TRUST PLC OR",
+            "exchange": "LSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/BNKR.L/chart?p=BNKR.L"
+        },
+        {
+            "symbol": "BARC.L",
+            "name": "BARCLAYS PLC ORD 25P",
+            "exchange": "LSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/BARC.L/chart?p=BARC.L"
+        },
+        {
+            "symbol": "BDEV.L",
+            "name": "BARRATT DEVELOPMENTS PLC ORD 10",
+            "exchange": "LSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/BDEV.L/chart?p=BDEV.L"
+        },
+        {
+            "symbol": "BBGI.L",
+            "name": "BBGI GLOBAL INFRASTRUCTURE S.A.",
+            "exchange": "LSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/BBGI.L/chart?p=BBGI.L"
+        },
+        {
+            "symbol": "BEZ.L",
+            "name": "BEAZLEY PLC ORD 5P",
+            "exchange": "LSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/BEZ.L/chart?p=BEZ.L"
+        },
+        {
+            "symbol": "BHMG.L",
+            "name": "BH MACRO LIMITED ORD NPV (GBP)",
+            "exchange": "LSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/BHMG.L/chart?p=BHMG.L"
+        },
+        {
+            "symbol": "BHG.ST",
+            "name": "BHG Group AB",
+            "exchange": "Stockholm",
+            "yahooChartLink": "https://finance.yahoo.com/quote/BHG.ST/chart?p=BHG.ST"
+        },
+        {
+            "symbol": "BHP.L",
+            "name": "BHP GROUP LIMITED ORD NPV (DI)",
+            "exchange": "LSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/BHP.L/chart?p=BHP.L"
+        },
+        {
+            "symbol": "BICO.ST",
+            "name": "BICO Group AB",
+            "exchange": "Stockholm",
+            "yahooChartLink": "https://finance.yahoo.com/quote/BICO.ST/chart?p=BICO.ST"
+        },
+        {
+            "symbol": "BPCP.L",
+            "name": "BIOPHARMA CREDIT PLC ORD USD0.0",
+            "exchange": "LSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/BPCP.L/chart?p=BPCP.L"
+        },
+        {
+            "symbol": "BSIF.L",
+            "name": "BLUEFIELD SOLAR INCOME FUND LIM",
+            "exchange": "LSE",
+            "yahooChartLink": "https://finance.yahoo.com/quote/BSIF.L/chart?p=BSIF.L"
+        }
+    ],
+    "page": 1,
+    "total-pages": 9,
+    "total-elements": 833
+}

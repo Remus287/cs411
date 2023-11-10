@@ -26,8 +26,10 @@ export default function Home({
 	isConnected,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
 	return (
-		<div>
-			<h1>Login</h1>
+		<div className={'w-full h-full flex'}>
+			<section className={"w-1/3 bg-[#3E2F5B] h-full"}>
+			
+			</section>
 		</div>
 	)
 }

@@ -27,7 +27,7 @@ export default function Home({
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
       <div>
-        <h1>Blah BLah</h1>
+        <h1>Blah BLah Balls</h1>
       </div>
   )
 }

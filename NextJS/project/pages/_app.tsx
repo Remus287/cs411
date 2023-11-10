@@ -1,27 +1,23 @@
 import './globals.css';
 
-import { CacheProvider, EmotionCache } from '@emotion/react';
 import type { AppProps } from 'next/app';
 import {FunctionComponent} from "react";
 import createCache from "@emotion/cache";
+import {SessionProvider, useSession} from "next-auth/react";
+import {Session} from "next-auth";
+import {NextComponentType} from "next";
 
-interface ApplicationAppProps extends AppProps {
-	emotionCache?: EmotionCache;
-}
-const createEmotionCache = () => {
-	return createCache({ key: 'css', prepend: true });
-}
-const clientSideEmotionCache = createEmotionCache();
 
-const Application : FunctionComponent<ApplicationAppProps> = (props) => {
-	const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
+const Application = ({Component, pageProps: {session, ...pageProps}}: AppProps) => {
 	
 	return (
-		<div data-theme="light" className={' max-w-screen h-screen overflow-hidden'}>
-			<main className={'w-screen h-screen'}>
-				<Component {...pageProps} />
-			</main>
-		</div>
+		<SessionProvider session={pageProps.session}>
+			<div className={'w-screen h-screen overflow-hidden'}>
+				<main className={'w-screen h-screen'}>
+					<Component {...pageProps} />
+				</main>
+			</div>
+		</SessionProvider>
 	)
 }
 

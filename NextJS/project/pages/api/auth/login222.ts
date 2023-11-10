@@ -1,7 +1,7 @@
 import {NextApiRequest, NextApiResponse} from "next";
 import clientPromise from "../../../lib/mongodb";
 
-export default async function login(req: NextApiRequest, res: NextApiResponse) {
+export default async function login222(req: NextApiRequest, res: NextApiResponse) {
 	const {username, password} = req.body;
 	
 	const client = await clientPromise

@@ -1,22 +1,33 @@
+import Head from 'next/head'
+import clientPromise from '../../lib/mongodb'
 import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
 import {useRouter} from "next/router";
-import {signIn, useSession} from "next-auth/react";
-import {useEffect} from "react";
 
 type ConnectionStatus = {
 	isConnected: boolean
 }
 
-
-export default function Home({}) {
-	const router = useRouter ();
-	const {status} = useSession()
-	useEffect(() => {
-		if (status === 'authenticated'){
-			router.push('/feed')
+export const getServerSideProps: GetServerSideProps<
+	ConnectionStatus
+> = async () => {
+	try {
+		await clientPromise
+		return {
+			props: { isConnected: true },
 		}
-	},[status])
-	const handleSubmit  = async (e) => {
+	} catch (e) {
+		console.error(e)
+		return {
+			props: { isConnected: false },
+		}
+	}
+}
+
+export default function Home({
+	isConnected,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+	const router = useRouter ();
+	const handleSubmit  = (e) => {
 		e.preventDefault ()
 		let username = e.target[0].value
 		let password = e.target[1].value
@@ -25,15 +36,21 @@ export default function Home({}) {
 			username: username, password: password,
 		}
 		
-		const res = await signIn('credentials', {
-			redirect: false,
-			username: username,
-			password: password,
+		fetch ('/api/auth/login', {
+			method: 'POST', headers: {
+				'Content-Type': 'application/json',
+			}, body: JSON.stringify (user),
 		})
-		
-		if (!res.error){
-			router.push('/feed')
-		}
+			.then ((res) => {
+				console.log (res.status)
+				if (res.status === 200) {
+					router.push ('/feed')
+				}
+				return res.json ()
+			})
+			.then ((data) => {
+				console.log (data)
+			}).catch ((err) => console.log (err))
 	}
 	return (
 		<div className={'w-full h-full flex justify-start'} style={{

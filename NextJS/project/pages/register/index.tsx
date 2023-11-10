@@ -1,31 +1,17 @@
-import clientPromise from '../../lib/mongodb'
-import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
-type ConnectionStatus = {
-	isConnected: boolean
-}
+import {useSession} from "next-auth/react";
+import {useRouter} from "next/router";
+import {useEffect} from "react";
 
-export const getServerSideProps: GetServerSideProps<
-	ConnectionStatus
-> = async () => {
-	try {
-		await clientPromise
-		return {
-			props: { isConnected: true },
+export default function Home(){
+	const router = useRouter ();
+	const {status} = useSession()
+	useEffect(() => {
+		if (status === 'authenticated'){
+			router.push('/feed')
 		}
-	} catch (e) {
-		console.error(e)
-		return {
-			props: { isConnected: false },
-		}
-	}
-}
-
-export default function Home({
-	isConnected,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+	},[status])
 	
-	
-	const handleSubmit  = (e) => {
+	const handleSubmit  = async (e) => {
 		e.preventDefault()
 		let username = e.target[0].value
 		let password = e.target[1].value
@@ -43,18 +29,17 @@ export default function Home({
 		
 		// send to api register route
 		
-		fetch('/api/auth/register', {
+		const res = await fetch('/api/auth/register', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify(newUser),
-		})
-			.then((res) => res.json())
-			.then((data) => {
-				console.log(data)
-			})
-			.catch((err) => console.log(err))
+		});
+		
+		const data = await res.json();
+		
+		console.log(data)
 	}
 	
 	return (

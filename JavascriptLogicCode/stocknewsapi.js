@@ -18,10 +18,10 @@ DO NOT PUSH THE KEY!!!!
 */
 
 
-async function getStockNewsData(stockSymbol, date) {
+async function getStockNewsData(stockSymbol) {
   const apiKey = require('./key');
   
-  const endpoint = `https://stocknewsapi.com/api/v1?tickers=${stockSymbol}&date=${date}&items=3&page=1&sortby=rank&extra-fields=rankscore&token=${apiKey}`;
+  const endpoint = `https://stocknewsapi.com/api/v1?tickers=${stockSymbol}&items=3&page=1&sortby=rank&extra-fields=rankscore&token=${apiKey}`;
   const endpointResponse = await fetch(endpoint);
   const endpointData = await endpointResponse.json();
 
@@ -29,9 +29,9 @@ async function getStockNewsData(stockSymbol, date) {
 }
 
 
-async function getSentimentAndData(stockSymbol, date) {
+async function getSentimentAndData(stockSymbol) {
 
-    const result = await getStockNewsData(stockSymbol, date);
+    const result = await getStockNewsData(stockSymbol);
     const newsData = result.data.data;
 
     // Define a mapping for sentiment values
@@ -58,9 +58,8 @@ async function getSentimentAndData(stockSymbol, date) {
 
   // Example usage
   const stockSymbol = 'AAPL';
-  date = ['01152019-today', '01152019-01152019', 'today', 'yesterday', 'last7days', 'last30days', 'yeartodate'];
   
-  getSentimentAndData(stockSymbol, date[4])
+  getSentimentAndData(stockSymbol)
     .then(result => {
       console.log('Average Sentiment:', result.averageSentiment);
       console.log('News Data:', result.newsData);

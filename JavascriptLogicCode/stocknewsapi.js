@@ -4,7 +4,14 @@ examples here: https://stocknewsapi.com/examples#examples-basic
 
 INSTRUCTIONS:
 
-put key in a key.js file in the same directory as this one
+make a file named key.js
+put this code in:
+
+  const apiKey = 'YOUR_KEY_HERE';
+  module.exports = apiKey;
+
+save and close
+
 cd to current path in terminal
 terminal >> node stocknewsapi.js
 DO NOT PUSH THE KEY!!!!

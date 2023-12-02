@@ -19,17 +19,17 @@ export const authOptions = {
 		CredentialsProvider({
 			async authorize(credentials) {
 				const client = await clientPromise
+				
 				const db = await client.db();
-				
+			
 				const collection = await db.collection('users');
-				
+			
 				const result = await collection.findOne({username : credentials.username});
-				
 				if (!result) {
 					throw new Error('No user found')
 				}
-				console.log(credentials.password, result.password)
-				console.log(await compare(credentials.password, result.password))
+				
+				
 				const checkPassword = await compare(credentials.password, result.password);
 				
 				if (checkPassword) {

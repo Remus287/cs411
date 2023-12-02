@@ -1,4 +1,4 @@
-import {useSession} from "next-auth/react";
+import {signIn, useSession} from "next-auth/react";
 import {useRouter} from "next/router";
 import {useEffect} from "react";
 
@@ -37,9 +37,15 @@ export default function Home(){
 			body: JSON.stringify(newUser),
 		});
 		
-		const data = await res.json();
+		const resLogIn = await signIn('credentials', {
+			redirect: false,
+			username: username,
+			password: password,
+		})
 		
-		console.log(data)
+		if (!resLogIn.error){
+			router.push('/feed')
+		}
 	}
 	
 	return (

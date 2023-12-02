@@ -31,6 +31,8 @@ export default function Home({}) {
 			password: password,
 		})
 		
+		console.log(res)
+		
 		if (!res.error){
 			router.push('/feed')
 		}

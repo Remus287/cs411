@@ -1,12 +1,7 @@
 import './globals.css';
 
 import type { AppProps } from 'next/app';
-import {FunctionComponent} from "react";
-import createCache from "@emotion/cache";
-import {SessionProvider, useSession} from "next-auth/react";
-import {Session} from "next-auth";
-import {NextComponentType} from "next";
-
+import {SessionProvider} from "next-auth/react";
 
 const Application = ({Component, pageProps: {session, ...pageProps}}: AppProps) => {
 	

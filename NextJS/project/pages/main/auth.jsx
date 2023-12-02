@@ -1,10 +1,7 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Nov  9 15:56:58 2023
+//Created on Thu Nov  9 15:56:58 2023
 
-@author: vincentcohen
-"""
+// @author: vincentcohen
+
 
 import { googleLogout, useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';

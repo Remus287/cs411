@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Custom Scrollbar for #stocksList */
+
+#stocksList::-webkit-scrollbar {
+    width: 10px;
+}
+
+#stocksList::-webkit-scrollbar-track {
+    background: #2a2929;
+}
+
+#stocksList::-webkit-scrollbar-thumb {
+    background: #757070;
+    border-radius: 10px;
+}
+
+#stocksList::-webkit-scrollbar-thumb:hover {
+    background: #645e5e;
+}
+
+#stocksList > li:not(:last-child) {
+    border-bottom-width: 2px;
+}

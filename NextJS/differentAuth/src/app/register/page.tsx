@@ -94,10 +94,10 @@ const Register = () => {
 					<label className={'w-full flex flex-col gap-1'}>
 						<label className={'text-gray-700 text-lg pl-2'}>Password</label>
 						<input type={'password'} className={'px-4 py-2 bg-white/[.9] outline outline-1 outline-gray-300 w-full'} />
+            <p className="text-red-600 text-[16px] mb-4">{error && error}</p>
 					</label>
 					<button type={'submit'} className={'bg-[#381f98] text-white py-2 px-8 mt-5 w-40'}>Register</button>
 				</form>
-
         <button
             className={'bg-[#381f98] text-white py-2 px-8 mt-5 w-full'}
             onClick={() => {

@@ -68,7 +68,8 @@ const Login = () => {
 		}}>
 			<section className={"w-1/3 h-full flex py-200 px-20 bg-white flex-col gap-10"}>
 				<h1 className={'text-4xl font-medium border-b-4 border-blue-700 py-4'}>Log In</h1>
-				<form className={'flex flex-col w-full gap-4 items-end'} onSubmit={(e)=>{handleSubmit(e)}}>
+
+				<form className={'flex flex-col w-full gap-4 items-end'} onSubmit={handleSubmit}>
 					<label className={'w-full flex flex-col gap-1'}>
 						<label className={'text-gray-700 text-lg pl-2'}>Username</label>
 						<input type={'text'} className={'px-4 py-2 bg-gray/[.9] outline outline-1 outline-gray-300 w-full'} />

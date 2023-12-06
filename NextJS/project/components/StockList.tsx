@@ -1,5 +1,7 @@
+"use client";
 import { Stock, StockFromAPI } from "../types";
 import { SyntheticEvent, useEffect, useState } from "react";
+import Link from "next/link";
 export default function StockList() {
 	const [stocks, setStocks] = useState<Stock[]>([]);
 	const [keyword, setKeyword] = useState<string>("AAPL");
@@ -43,12 +45,16 @@ export default function StockList() {
 	const updateStockList = async () => {
 		setStocks([]);
 
-		const response = await fetch(`https://api.twelvedata.com/symbol_search?symbol=${keyword}`);
+		const response = await fetch(`https://api.twelvedata.com/symbol_search?symbol=${keyword}&outputsize=100`);
 		const json = await response.json();
 
 		const stocks: Stock[] = formatStocks(json.data);
 
-		setStocks(stocks);
+		const stocksUS = stocks.filter((stock) => {
+			return stock.country === "United States";
+		});
+
+		setStocks(stocksUS);
 	};
 
 	return (
@@ -61,12 +67,20 @@ export default function StockList() {
 				{stocks.map((stock) => {
 					return (
 						<li key={stock.key} className={"text-white transition-background duration-100 hover:bg-white/[.2]"}>
-							<button className={"flex flex-col gap-1 p-2 w-full"}>
+							<Link
+								href={{
+									pathname: "/feed/stock/[...symbol]",
+									query: {
+										symbol: [stock.symbol],
+									},
+								}}
+								className={"flex flex-col gap-1 p-2 w-full"}
+							>
 								<p className={"truncate text-lg pl-4 w-full text-left"}>
 									{stock.symbol} - {stock.instrument_name}
 								</p>
 								<p className={"overflow-clip text-sm pl-4 font-light text-right w-full underline underline-offset-2"}>{stock.country}</p>
-							</button>
+							</Link>
 						</li>
 					);
 				})}

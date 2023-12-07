@@ -19,6 +19,18 @@ module.exports = {
 			transitionProperty: {
 				fontColor: "color",
 				background: "background, background-color, background-image",
+				size: "width, height",
+				passwordStrength: "background-color, width",
+				opacity: "opacity",
+			},
+			backgroundColor: {
+				passwordStrength: {
+					0: "#c0ff33",
+					25: "#feff5c",
+					50: "#ffc163",
+					75: "#ffa879",
+					100: "#fb4b4b",
+				},
 			},
 		},
 	},

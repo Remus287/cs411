@@ -31,3 +31,43 @@
 #stocksList > li:not(:last-child) {
     border-bottom-width: 2px;
 }
+.tooltip-container > svg:hover + .tooltip {
+    opacity: 1;
+}
+.tooltip-container > svg:hover + .tooltip::after {
+    opacity: 1;
+}
+
+.tooltip {
+    transition: all .3s ease-in-out;
+    transition-delay: 0.1s;
+}
+.tooltip::after {
+    content: " ";
+    position: absolute;
+    top: 100%; /* At the bottom of the tooltip */
+    /*transform: translateY(-50%);*/
+    transform: translate(-85%, -85%) skew(17deg, 17deg);
+    left: 100%;
+    border-width: .3rem;
+    border-style: solid;
+    border-color: transparent #1e3a8a #1e3a8a transparent;
+    transition: all .3s ease-in-out;
+}
+
+.scale-animation {
+    animation: scale 1s infinite;
+}
+
+
+@keyframes scale {
+    0% {
+        transform: scale(0.9);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(0.9);
+    }
+}

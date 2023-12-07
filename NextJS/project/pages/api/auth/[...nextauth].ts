@@ -7,7 +7,7 @@ import clientPromise from "../../../lib/mongodb";
 import { compare } from "bcryptjs";
 
 export const authOptions = {
-	secret: process.env.NEXTAUTH_SECRET,
+	secret: process.env.NEXT_AUTH_SECRET,
 	providers: [
 		GithubProvider({
 			clientId: process.env.GITHUB_ID || "",
@@ -21,33 +21,59 @@ export const authOptions = {
 			async authorize(credentials) {
 				const client = await clientPromise;
 
-				const db = await client.db();
+				const db = client.db();
 
-				const collection = await db.collection("users");
+				const collection = db.collection("users");
 
-				const result = await collection.findOne({ username: credentials.username });
-				if (!result) {
+				const exists = await collection.findOne({ email: credentials.email });
+
+				if (!exists) {
 					throw new Error("No user found");
 				}
 
-				const checkPassword = await compare(credentials.password, result.password);
+				const isValid = await compare(credentials.password, exists.password);
 
-				if (checkPassword) {
-					return { username: result.username, email: result.email, firstName: result.firstName, lastName: result.lastName };
+				if (!isValid) {
+					throw new Error("Invalid password");
 				}
-				throw new Error("Wrong password");
+
+				return {
+					name: exists.name,
+					email: exists.email,
+					image: exists.image,
+					provider: exists.provider,
+					favorites: exists.favorites,
+				};
 			},
 		}),
 	],
 	callbacks: {
 		async signIn({ user, account }: { user: AuthUser; account: Account }) {
+			console.log("user", user);
+			console.log("account", account);
 			const client = await clientPromise;
-			const db = await client.db();
+			const db = client.db();
 
-			const collection = await db.collections("users");
+			const collection = db.collection("users");
 
-			console.log("AuthUser", user);
-			console.log("Account", account);
+			const email = user.email;
+
+			const exists = await collection.find({ email: email }).toArray();
+
+			console.log(exists);
+			if (exists && exists.length !== 0) {
+				return exists[0].provider !== account.provider ? "/errors/provider" : true;
+			}
+
+			const newUser = {
+				name: user.name,
+				email: email,
+				image: user.image,
+				provider: account.provider,
+				favorites: [],
+			};
+
+			await collection.insertOne(newUser);
 			return true;
 		},
 	},

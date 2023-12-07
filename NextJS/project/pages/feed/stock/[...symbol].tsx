@@ -18,7 +18,6 @@ type Meta = {
 	type: string;
 };
 export async function getServerSideProps(context: any) {
-	// check if user is authenticated, if not redirect to login page
 	const session = await getServerSession(context.req, context.res, authOptions);
 
 	if (!session) {
@@ -33,6 +32,8 @@ export async function getServerSideProps(context: any) {
 	return {
 		props: {
 			symbol: context.params.symbol.join("/"),
+			email: session.user?.email,
+			image: session.user?.image,
 		},
 	};
 }

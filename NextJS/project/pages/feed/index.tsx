@@ -1,26 +1,38 @@
-import { signOut, useSession } from "next-auth/react";
+import { signOut } from "next-auth/react";
+import Navbar from "../../components/Navbar";
+import { authOptions } from "../api/auth/[...nextauth]";
+import { getServerSession } from "next-auth";
+import { InferGetServerSidePropsType } from "next";
 import { useRouter } from "next/router";
-import StockList from "../../components/StockList";
+import Header from "@components/Header";
 
-export default function Home() {
-	const router = useRouter();
-	const { status } = useSession({
-		required: true,
-		onUnauthenticated() {
-			router.push("/login");
+export async function getServerSideProps(context: any) {
+	const session = await getServerSession(context.req, context.res, authOptions);
+
+	if (!session) {
+		return {
+			redirect: {
+				destination: "/",
+				permanent: false,
+			},
+		};
+	}
+
+	return {
+		props: {
+			name: session.user?.name || "",
+			email: session.user?.email || "",
+			image: session.user?.image || "",
 		},
-	});
+	};
+}
+export default function Home({ name, image }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+	const router = useRouter();
 
 	return (
 		<div className={"h-full"}>
-			<section className={"h-full fixed w-1/6"}>
-				<StockList />
-			</section>
-			<section className={"h-full w-5/6 ml-auto"}>
-				<button onClick={() => signOut()} className={"absolute top-0 right-0 mt-4 mr-4 px-4 py-2 bg-blue-950 text-white rounded-lg"}>
-					Sign Out
-				</button>
-			</section>
+			<Navbar />
+			<Header image={image} name={name} />
 		</div>
 	);
 }

@@ -1,41 +1,61 @@
-import clientPromise from "../../../lib/mongodb";
-import {NextApiRequest, NextApiResponse} from "next";
-import {hash} from "bcryptjs";
+import { NextApiRequest, NextApiResponse } from "next";
+import clientPromise from "@lib/mongodb";
+import { hash } from "bcryptjs";
+import { sendMail } from "@lib/sendgrid";
 
-export default async function register(req: NextApiRequest, res: NextApiResponse) {
-	if (req.method === 'POST'){
-		const {username, password, email, firstName, lastName} = req.body;
-		
-		if (!email || !email.includes('@') ||  !password || !username || !firstName || !lastName) {
-			res.status(400).json({error: 'Missing fields'});
+type CustomResponse = {};
+export default async function handler(req: NextApiRequest, res: NextApiResponse<CustomResponse>) {
+	if (req.method !== "POST") {
+	} else {
+		const { username, email, password, name } = req.body;
+		const client = await clientPromise;
+		const db = client.db();
+
+		const collection = db.collection("users");
+
+		const exists = await collection.findOne({ email: email });
+
+		if (exists) {
+			res.status(400).json({ message: "User already exists" });
 			return;
 		}
-		
-		const client = await clientPromise
-		const db = await client.db();
-		
-		const collection = await db.collection('users');
-		
-		// username has to be new, email has to be new
-		
-		const user = await collection.findOne({"$or" : [{username : username}, {email : email}]});
-		
-		if (user) {
-			res.status(400).json({error: 'Username or email already exists'});
-			return;
-		}
-		const hashedPassword = await hash(password, 10);
-		
-		const newUser = await collection.insertOne({
-			username : username,
-			password : hashedPassword,
-			email : email,
-			firstName : firstName,
-			lastName : lastName,
+
+		const hashedPassword = await hash(password, 12);
+
+		const verificationToken = await sha256(email + Date.now().toString());
+
+		// create verification link that includes username and token
+
+		const url = `http://localhost:3000/api/verify/${username}&${verificationToken}`;
+		// send email with link
+
+		const mailRes = await sendMail(email, "Verify your account", url, name);
+
+		const result = await collection.insertOne({
+			username: username,
+			email: email,
+			password: hashedPassword,
+			name: name,
+			provider: "credentials",
+			favorites: [],
+			emailVerified: false,
+			emailVerification: verificationToken,
 		});
-		
-		res.status(200).json({message: newUser});
-	}else {
-		res.status(400).json({error: 'Wrong request method'});
+
+		res.status(200).json({ message: "User created" });
 	}
+}
+
+async function sha256(message: string) {
+	// encode as UTF-8
+	const msgBuffer = new TextEncoder().encode(message);
+
+	// hash the message
+	const hashBuffer = await crypto.subtle.digest("SHA-256", msgBuffer);
+
+	// convert ArrayBuffer to Array
+	const hashArray = Array.from(new Uint8Array(hashBuffer));
+
+	// convert bytes to hex string
+	return hashArray.map((b) => b.toString(16).padStart(2, "0")).join("");
 }

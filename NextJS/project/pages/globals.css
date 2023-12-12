@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+html, body {
+    max-height: 100vh;
+    max-width: 100vw;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -11,20 +19,17 @@
 
 /* Custom Scrollbar for #stocksList */
 
-#stocksList::-webkit-scrollbar {
+*::-webkit-scrollbar {
     width: 10px;
 }
-
-#stocksList::-webkit-scrollbar-track {
+*::-webkit-scrollbar-track {
     background: #2a2929;
 }
-
-#stocksList::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
     background: #757070;
     border-radius: 10px;
 }
-
-#stocksList::-webkit-scrollbar-thumb:hover {
+*::-webkit-scrollbar-thumb:hover {
     background: #645e5e;
 }
 
@@ -58,8 +63,6 @@
 .scale-animation {
     animation: scale 1s infinite;
 }
-
-
 @keyframes scale {
     0% {
         transform: scale(0.9);

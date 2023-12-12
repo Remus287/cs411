@@ -1,28 +1,36 @@
-"use client";
 import { Stock, StockFromAPI } from "../types";
 import { SyntheticEvent, useEffect, useState } from "react";
 import Link from "next/link";
+
 export default function StockList() {
 	const [stocks, setStocks] = useState<Stock[]>([]);
-	const [keyword, setKeyword] = useState<string>("AAPL");
 	const [timer, setTimer] = useState<NodeJS.Timeout | null>(null);
 	useEffect(() => {
-		updateStockList().then();
+		updateStockList("AAPL").then();
 	}, []);
 
 	const handleChange = (e: SyntheticEvent) => {
 		e.preventDefault();
-		const searchbar = e.target as HTMLInputElement;
-		setKeyword(searchbar.value);
+
+		const target = e.target as typeof e.target & {
+			value: string;
+		};
+
+		const keyword = target.value;
 
 		if (timer) {
 			clearTimeout(timer);
 		}
-		setTimer(
-			setTimeout(() => {
-				updateStockList().then();
-			}, 1000),
-		);
+
+		const newTimer = setTimeout(() => {
+			if (keyword.length > 0) {
+				updateStockList(keyword).then();
+			} else {
+				updateStockList("AAPL").then();
+			}
+		}, 500);
+
+		setTimer(newTimer);
 	};
 
 	const formatStocks = (stocks: StockFromAPI[]) => {
@@ -42,12 +50,10 @@ export default function StockList() {
 		});
 		return formattedStocks;
 	};
-	const updateStockList = async () => {
+	const updateStockList = async (keyword: string) => {
 		setStocks([]);
-
-		const response = await fetch(`https://api.twelvedata.com/symbol_search?symbol=${keyword}&outputsize=100`);
+		const response = await fetch(`https://api.twelvedata.com/symbol_search?symbol=${keyword}`);
 		const json = await response.json();
-
 		const stocks: Stock[] = formatStocks(json.data);
 
 		const stocksUS = stocks.filter((stock) => {
@@ -58,10 +64,12 @@ export default function StockList() {
 	};
 
 	return (
-		<div className={"h-full w-full flex flex-col pt-8 bg-black gap-6 px-1"}>
-			<p className={"text-white text-4xl font-bold text-center"}>Find Stocks</p>
+		<div className={"h-full w-full flex flex-col pt-8 bg-[#1c1c1c] gap-6 px-1"}>
+			<Link id={"logo"} href={"/feed"} className={"text-white text-4xl font-bold text-center m-auto p-2"}>
+				Stock Hub
+			</Link>
 			<span className={"w-full px-3 h-12 relative flex flex-row"}>
-				<input type={"text"} onChange={(e) => handleChange(e)} className={"w-full h-full m-auto rounded-md px-4 font-medium text-lg text-black/[.7] border-2 outline-0 border-gray-300 shadow-inner"} />
+				<input placeholder={"Search for stocks"} type={"text"} onChange={handleChange} className={"w-full h-2/3 m-auto rounded-md px-4 font-medium text-sm text-black/[.7] border-2 outline-0 border-gray-300 shadow-inner"} />
 			</span>
 			<ul className={"flex flex-col overflow-y-auto h-full px-2"} id={"stocksList"}>
 				{stocks.map((stock) => {

@@ -5,34 +5,36 @@ import Link from "next/link";
 export default function Home({}) {
 	const router = useRouter();
 	const { status } = useSession();
+
 	useEffect(() => {
+		console.log(status);
 		if (status === "authenticated") {
-			// router.push("/feed");
+			router.push("/feed").then();
 		}
 	}, [status]);
 
 	const handleSubmit = async (e: SyntheticEvent) => {
 		e.preventDefault();
 		const target = e.target as typeof e.target & {
-			email: { value: string };
+			username: { value: string };
 			password: { value: string };
 		};
 
-		const email = target.email.value;
+		const username = target.username.value;
 		const password = target.password.value;
 
 		const res = await signIn("credentials", {
 			redirect: false,
-			email: email,
+			username: username,
 			password: password,
 		});
 
-		if (res && !res.error) {
-			router.push("/feed").then();
+		if (res && res.error) {
+			alert(res.error);
 		}
 
-		if (res && res.error) {
-			console.log(res.error);
+		if (res && !res.error) {
+			router.push("/feed").then();
 		}
 	};
 	let providerSignIn = async (provider: string) => {
@@ -56,14 +58,17 @@ export default function Home({}) {
 						handleSubmit(e).then();
 					}}
 				>
-					<label className={""}>
-						<label className={"text-lg"}>email</label>
-						<input className={"border-2 border-blue-700 rounded-md p-2"} type="text" name="email" />
+					<label className={"w-full flex flex-col gap-1"}>
+						<label className={"text-gray-700 text-lg pl-2"}>Username</label>
+						<input type={"text"} className={"px-4 py-2 bg-white/[.9] outline outline-1 outline-gray-300 w-full"} required name={"username"} />
 					</label>
-					<label className={""}>
-						<label className={"text-lg"}>Password</label>
-						<input className={"border-2 border-blue-700 rounded-md p-2"} type="password" name="password" />
+					<label className={"w-full flex flex-col gap-1"}>
+						<label className={"text-gray-700 text-lg pl-2"}>Password</label>
+						<input type={"password"} className={"px-4 py-2 bg-white/[.9] outline outline-1 outline-gray-300 w-full"} maxLength={24} minLength={8} id={"password"} required name={"password"} />
 					</label>
+					<button className={"bg-blue-700 text-white rounded-md p-2"} type="submit">
+						Sign In
+					</button>
 				</form>
 				<button
 					onClick={() => {

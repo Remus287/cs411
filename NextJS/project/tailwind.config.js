@@ -22,6 +22,8 @@ module.exports = {
 				size: "width, height",
 				passwordStrength: "background-color, width",
 				opacity: "opacity",
+				newsLink: "background-color, opacity",
+				transform: "transform",
 			},
 			backgroundColor: {
 				passwordStrength: {

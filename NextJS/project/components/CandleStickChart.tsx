@@ -11,16 +11,22 @@ type Data = {
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 export default function CandleStickChart({ data }: { data: Data[] }) {
 	const options = {
-		title: {
-			text: "CandleStick Chart",
-			align: "left" as const,
-		},
 		xaxis: {
 			type: "datetime" as const,
+			labels: {
+				style: {
+					colors: "#ffffff",
+				},
+			},
 		},
 		yaxis: {
 			tooltip: {
 				enabled: true,
+			},
+			labels: {
+				style: {
+					colors: "#ffffff",
+				},
 			},
 		},
 	};
@@ -34,9 +40,5 @@ export default function CandleStickChart({ data }: { data: Data[] }) {
 			}),
 		},
 	];
-	return (
-		<div className={"w-full h-full flex flex-col"}>
-			<Chart type={"candlestick"} options={options} series={series} height={550} />
-		</div>
-	);
+	return <Chart type={"candlestick"} options={options} series={series} height={"100%"} />;
 }

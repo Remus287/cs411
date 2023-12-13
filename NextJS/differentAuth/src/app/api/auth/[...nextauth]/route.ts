@@ -23,10 +23,10 @@ export const authOptions: any = {
           if (user) {
             const isPasswordCorrect = await bcrypt.compare(
               credentials.password,
-              user.password
+              user.password,
             );
             if (isPasswordCorrect) {
-              console.log("user object data structure, route.ts", user)
+              console.log("user object data structure, route.ts", user);
               return user;
             }
           }
@@ -39,7 +39,6 @@ export const authOptions: any = {
       clientId: process.env.GOOGLE_CLIENT_ID!,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
     }),
-
   ],
   callbacks: {
     async signIn({ user, account }: { user: AuthUser; account: Account }) {

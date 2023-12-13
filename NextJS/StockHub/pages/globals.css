@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+    max-height: 100vh;
+    max-width: 100vw;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Custom Scrollbar for #stocksList */
+
+*::-webkit-scrollbar {
+    width: 10px;
+}
+*::-webkit-scrollbar-track {
+    background: #2a2929;
+}
+*::-webkit-scrollbar-thumb {
+    background: #757070;
+    border-radius: 10px;
+}
+*::-webkit-scrollbar-thumb:hover {
+    background: #645e5e;
+}
+
+#stocksList > li:not(:last-child) {
+    border-bottom-width: 2px;
+}
+.tooltip-container > svg:hover + .tooltip {
+    opacity: 1;
+}
+.tooltip-container > svg:hover + .tooltip::after {
+    opacity: 1;
+}
+
+.tooltip {
+    transition: all .3s ease-in-out;
+    transition-delay: 0.1s;
+}
+.tooltip::after {
+    content: " ";
+    position: absolute;
+    top: 100%; /* At the bottom of the tooltip */
+    /*transform: translateY(-50%);*/
+    transform: translate(-85%, -85%) skew(17deg, 17deg);
+    left: 100%;
+    border-width: .3rem;
+    border-style: solid;
+    border-color: transparent #1e3a8a #1e3a8a transparent;
+    transition: all .3s ease-in-out;
+}
+
+.scale-animation {
+    animation: scale 1s infinite;
+}
+@keyframes scale {
+    0% {
+        transform: scale(0.9);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(0.9);
+    }
+}

@@ -29,10 +29,6 @@ export default function Home({}) {
 			password: password,
 		});
 
-		if (res && res.error) {
-			alert(res.error);
-		}
-
 		if (res && !res.error) {
 			router.push("/feed").then();
 		}
@@ -66,25 +62,36 @@ export default function Home({}) {
 						<label className={"text-gray-700 text-lg pl-2"}>Password</label>
 						<input type={"password"} className={"px-4 py-2 bg-white/[.9] outline outline-1 outline-gray-300 w-full"} maxLength={24} minLength={8} id={"password"} required name={"password"} />
 					</label>
-					<button className={"bg-blue-700 text-white rounded-md p-2"} type="submit">
+					<button className={"bg-blue-700 text-white rounded-md p-2 hover:bg-blue-900 transition-background"} type="submit">
 						Sign In
 					</button>
 				</form>
-				<button
-					onClick={() => {
-						providerSignIn("google").then();
-					}}
-				>
-					Sign in with Google
-				</button>
-				<button
-					onClick={() => {
-						providerSignIn("github").then();
-					}}
-				>
-					Sign in with Github
-				</button>
-				<Link href={"/register"}>Don't have an account? Register here.</Link>
+				<div className={"flex flex-row gap-6"}>
+					<button
+						onClick={() => {
+							providerSignIn("google").then();
+						}}
+						className={"outline rounded-xl shadow-inner shadow-gray-300 flex items-center w-1/2 gap-6 p-3 hover:bg-gray-800/[.1] transition-background"}
+					>
+						<img src={"/assets/google.png"} className={"h-8 aspect-square"} alt={""} />
+						Sign in with Google
+					</button>
+					<button
+						onClick={() => {
+							providerSignIn("github").then();
+						}}
+						className={"outline rounded-xl shadow-inner shadow-gray-300 flex items-center w-1/2 gap-6 p-3 hover:bg-gray-800/[.1] transition-background"}
+					>
+						<img src={"/assets/github-mark.png"} className={"h-8 aspect-square"} alt={""} />
+						Sign in with Github
+					</button>
+				</div>
+				<span>
+					Don't have an account?{" "}
+					<Link href={"/register"} className={"hover:underline"}>
+						Register Here.
+					</Link>
+				</span>
 			</section>
 		</div>
 	);

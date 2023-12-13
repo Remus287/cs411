@@ -27,11 +27,9 @@ export const authOptions = {
 				}
 				const client = await clientPromise;
 				const db = client.db();
-
 				const collection = db.collection("users");
 
-				const exists = await collection.findOne({ username: credentials.username });
-
+				const exists = await collection.findOne({ $or: [{ email: credentials.username }, { username: credentials.username }] });
 				if (!exists) {
 					return null;
 				}

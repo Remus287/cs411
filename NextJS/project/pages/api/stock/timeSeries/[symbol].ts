@@ -46,7 +46,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 	if (req.method === "GET") {
 		const symbol = req.query.symbol as string;
 		const interval = req.query.interval as string;
+
+		if (!symbol || !interval) {
+			return res.status(400).json({ message: "Missing query parameters" });
+		}
+
 		const timeSeries = await getTimeSeries(symbol, interval);
+
 		if (!timeSeries) {
 			res.status(404).json({ message: "Time series not found" });
 			return;

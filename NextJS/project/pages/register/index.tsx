@@ -10,10 +10,11 @@ export default function Home() {
 
 	const [passwordUpdateTimeout, setPasswordUpdateTimeout] = useState<NodeJS.Timeout | null>(null);
 	const [usernameUpdateTimeout, setUsernameUpdateTimeout] = useState<NodeJS.Timeout | null>(null);
+	const [emailUpdateTimeout, setEmailUpdateTimeout] = useState<NodeJS.Timeout | null>(null);
 
 	useEffect(() => {
 		if (status === "authenticated") {
-			// router.push("/feed");
+			router.push("/feed");
 		}
 	}, [status]);
 
@@ -76,6 +77,44 @@ export default function Home() {
 		setUsernameUpdateTimeout(timeout);
 	};
 
+	const isValidEmail = (email: string) => {
+		const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+		return emailRegex.test(email);
+	};
+	const handleEmailChange = async (e: SyntheticEvent) => {
+		e.preventDefault();
+		const target = e.target as typeof e.target & {
+			value: string;
+		};
+
+		const email = target.value;
+
+		if (emailUpdateTimeout) {
+			clearTimeout(emailUpdateTimeout);
+		}
+
+		const warning = document.querySelector(".email-tooltip > .tooltip-container") as HTMLSpanElement;
+		const warningIcon = warning.querySelector("svg") as SVGSVGElement;
+
+		const timeout = setTimeout(() => {
+			if (email.length !== 0 && !isValidEmail(email)) {
+				warning.classList.remove("invisible");
+				warningIcon.classList.remove("opacity-0");
+				warning.classList.add("visible");
+				warningIcon.classList.add("opacity-100");
+			} else {
+				warning.classList.remove("visible");
+				warningIcon.classList.remove("opacity-100");
+				warningIcon.classList.add("opacity-0");
+
+				setTimeout(() => {
+					warning.classList.add("invisible");
+				}, 500);
+			}
+		}, 500);
+
+		setEmailUpdateTimeout(timeout);
+	};
 	const comparePasswords = async (e: SyntheticEvent) => {
 		e.preventDefault();
 
@@ -216,18 +255,7 @@ export default function Home() {
 			},
 			body: JSON.stringify(newUser),
 		});
-
-		if (res) {
-			const signedIn = await signIn("credentials", {
-				redirect: false,
-				email: email,
-				password: password,
-			});
-
-			if (signedIn) {
-				router.push("/feed").then();
-			}
-		}
+		router.push("/").then();
 	};
 
 	return (
@@ -263,9 +291,9 @@ export default function Home() {
 						<span className={"relative email-tooltip"}>
 							<span className={"absolute top-1/2 -translate-y-1/2 -translate-x-8 text-red-800 tooltip-container invisible"}>
 								<IoIosWarning className={"text-2xl opacity-0 transition-opacity duration-500"} />
-								<p className={"tooltip absolute w-40 text-xs font-medium text-center rounded-md bg-blue-900 text-white p-2 -translate-x-full -translate-y-full top-0 opacity-0"}>Email already in use</p>
+								<p className={"tooltip absolute w-40 text-xs font-medium text-center rounded-md bg-blue-900 text-white p-2 -translate-x-full -translate-y-full top-0 opacity-0"}>Email not valid</p>
 							</span>
-							<input type={"text"} className={"px-4 py-2 bg-white/[.9] outline outline-1 outline-gray-300 w-full"} name={"email"} required />
+							<input type={"text"} className={"px-4 py-2 bg-white/[.9] outline outline-1 outline-gray-300 w-full"} name={"email"} required onChange={handleEmailChange} />
 						</span>
 					</label>
 					<label className={"w-full flex flex-col gap-1"}>
@@ -292,11 +320,16 @@ export default function Home() {
 						<label className={"text-gray-700 text-lg pl-2"}>Name</label>
 						<input type={"text"} className={"px-4 py-2 bg-white/[.9] outline outline-1 outline-gray-300 w-full"} required name={"fullName"} />
 					</label>
-					<button type={"submit"} className={"bg-[#381f98] text-white py-2 px-8 mt-5 w-40"}>
+					<button type={"submit"} className={"bg-[#381f98] text-white py-2 px-8 mt-5 w-40 hover:bg-[#291478] transition-background"}>
 						Register
 					</button>
 				</form>
-				<Link href={"/"}>Already have an account? Log in.</Link>
+				<span>
+					Already have an account?{" "}
+					<Link href={"/"} className={"hover:underline"}>
+						Sign In Here.
+					</Link>
+				</span>
 			</section>
 		</div>
 	);

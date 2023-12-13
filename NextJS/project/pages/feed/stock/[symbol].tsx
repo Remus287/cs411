@@ -1,7 +1,7 @@
 import { InferGetServerSidePropsType } from "next";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import CandleStickChart from "@components/CandleStickChart";
-import useSWR, { Fetcher } from "swr";
+import useSWR from "swr";
 import Navbar from "@components/Navbar";
 import { getServerSession } from "next-auth";
 import { useSession } from "next-auth/react";
@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 import { authOptions } from "../../api/auth/[...nextauth]";
 import Header from "@components/Header";
 import NewsList from "@components/NewsList";
+import Link from "next/link";
 
 export async function getServerSideProps(context: any) {
 	const session = await getServerSession(context.req, context.res, authOptions);
@@ -23,7 +24,8 @@ export async function getServerSideProps(context: any) {
 	}
 	return {
 		props: {
-			symbol: context.params.symbol.join("/"),
+			symbol: context.query.symbol,
+			interval: context.query.interval || "1day",
 			email: session.user?.email || "",
 			image: session.user?.image || "",
 			name: session.user?.name || "",
@@ -54,67 +56,78 @@ const CircularProgress = () => {
 	);
 };
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
+
 function getStockTimeSeries(symbol: string, interval: string) {
 	return useSWR(`/api/stock/timeSeries/${symbol}?interval=${interval}`, fetcher);
 }
 function getStockNews(symbol: string) {
 	return useSWR(`/api/stock/news/${symbol}`, fetcher);
 }
-export default function Stock({ symbol, name, image }: InferGetServerSidePropsType<typeof getServerSideProps>) {
-	const [interval, setInterval] = React.useState<string>("1day");
-
-	const { data: timeSeriesData, error: timeSeriesError } = getStockTimeSeries(symbol, interval);
-	const { data: newsData, error: newsError } = getStockNews(symbol);
-	const timeSeries = timeSeriesData?.timeSeries;
-	const meta = timeSeriesData?.meta as Meta;
-	const news: News[] = newsData?.news.data;
-
+export default function Stock({ symbol, name, email, image, interval }: InferGetServerSidePropsType<typeof getServerSideProps>) {
 	const router = useRouter();
-
-	const { status } = useSession({
+	useSession({
 		required: true,
 		onUnauthenticated() {
 			router.push("/").then();
 		},
 	});
 
-	const [newsComponent, setNewsComponent] = React.useState<JSX.Element>(
-		<div className={"flex items-center justify-center"}>
+	let { data: timeSeries, error: timeSeriesError } = getStockTimeSeries(symbol, interval);
+	const { data: news, error: newsError } = getStockNews(symbol);
+
+	let meta = timeSeries?.meta as Meta;
+	let timeSeriesData = timeSeries?.timeSeries;
+	const newsData = news?.news.data;
+
+	const [timeSeriesComponent, setTimeSeriesComponent] = React.useState<JSX.Element>(
+		<div className={"w-full h-full flex justify-center items-center"}>
 			<CircularProgress />
 		</div>,
 	);
-	const [timeSeriesComponent, setTimeSeriesComponent] = React.useState<JSX.Element>(
-		<div className={"flex items-center justify-center"}>
+
+	const [newsComponent, setNewsComponent] = React.useState<JSX.Element>(
+		<div className={"w-full h-full flex justify-center items-center"}>
 			<CircularProgress />
 		</div>,
 	);
 
 	useEffect(() => {
-		if (news) {
-			setNewsComponent(<NewsList news={news} />);
+		if (timeSeriesData) {
+			setTimeSeriesComponent(<CandleStickChart data={timeSeriesData} />);
 		}
-	}, [news]);
+	}, [timeSeriesData]);
+
 	useEffect(() => {
-		if (timeSeries) {
-			setTimeSeriesComponent(<CandleStickChart data={timeSeries} />);
+		if (newsData) {
+			setNewsComponent(<NewsList news={newsData} />);
 		}
-	}, [timeSeries]);
+	}, [newsData]);
 
 	return (
 		<div className={"w-full max-h-screen h-screen  flex flex-col"}>
 			<Navbar />
 			<div className={"flex-1 ml-auto w-5/6 max-h-full flex h-screen flex-col "}>
-				<Header name={name} image={image} meta={meta} />
+				<Header name={name} image={image} meta={meta} userEmail={email} />
 				<div className={"w-full flex flex-row gap-10 h-[calc(100%-90px)] p-4"}>
 					<div className={"h-full w-1/3 flex flex-col "}>
 						<div className={"h-1/5 w-full flex flex-col gap-6"}>
 							<p className={"text-white text-3xl font-medium"}>Interval</p>
-							<div className={"flex flex-row gap-4"}>
-								<button className={"w-fit bg-blue-700 text-white px-2 py-1 rounded-md"}>5min</button>
-								<button className={"w-fit bg-blue-700 text-white px-2 py-1 rounded-md"}>1hour</button>
-								<button className={"w-fit bg-blue-700 text-white px-2 py-1 rounded-md"}>1day</button>
-								<button className={"w-fit bg-blue-700 text-white px-2 py-1 rounded-md"}>1week</button>
-								<button className={"w-fit bg-blue-700 text-white px-2 py-1 rounded-md"}>1month</button>
+							<div className={"flex flex-row gap-4"} id={"intervalLinks"}>
+								<Link href={"/feed/stock/[symbol]?interval=5min"} as={`/feed/stock/${symbol}`} className={"w-fit bg-blue-700 text-white px-2 py-1 rounded-md"} id={"1min"}>
+									5min
+								</Link>
+								<Link href={"/feed/stock/[symbol]?interval=1h"} as={`/feed/stock/${symbol}`} className={"w-fit bg-blue-700 text-white px-2 py-1 rounded-md"} id={"1h"}>
+									1hour
+								</Link>
+								<Link href={"/feed/stock/[symbol]?interval=1day"} as={`/feed/stock/${symbol}`} className={"w-fit bg-blue-700 text-white px-2 py-1 rounded-md"} id={"1day"}>
+									1day
+								</Link>
+								<Link href={"/feed/stock/[symbol]?interval=1week"} as={`/feed/stock/${symbol}`} className={"w-fit bg-blue-700 text-white px-2 py-1 rounded-md"} id={"1week"}>
+									1week
+								</Link>
+								<Link href={"/feed/stock/[symbol]?interval=1month"} as={`/feed/stock/${symbol}`} className={"w-fit bg-blue-700 text-white px-2 py-1 rounded-md"} id={"1month"}>
+									1month
+								</Link>
 							</div>
 						</div>
 						{newsComponent}

@@ -75,15 +75,7 @@ export default function StockList() {
 				{stocks.map((stock) => {
 					return (
 						<li key={stock.key} className={"text-white transition-background duration-100 hover:bg-white/[.2]"}>
-							<Link
-								href={{
-									pathname: "/feed/stock/[...symbol]",
-									query: {
-										symbol: [stock.symbol],
-									},
-								}}
-								className={"flex flex-col gap-1 p-2 w-full"}
-							>
+							<Link href={"/feed/stock/[symbol]?interval=1day"} as={`/feed/stock/${stock.symbol}`} className={"flex flex-col gap-1 p-2 w-full"}>
 								<p className={"truncate text-lg pl-4 w-full text-left"}>
 									{stock.symbol} - {stock.instrument_name}
 								</p>

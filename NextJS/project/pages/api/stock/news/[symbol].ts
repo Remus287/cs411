@@ -16,7 +16,6 @@ async function getNews(symbol: string) {
 
 	const collection = db.collection("news");
 	const news = await collection.findOne({ symbol: symbol });
-
 	if (news) {
 		const newsDate = new Date(news.dateInserted);
 		const today = new Date();
@@ -32,7 +31,6 @@ async function getNews(symbol: string) {
 
 	const res = await fetchNews(symbol);
 	const inserted = await collection.insertOne({ symbol: symbol, dateInserted: new Date(), news: res });
-
 	return await collection.findOne({ _id: inserted.insertedId });
 }
 

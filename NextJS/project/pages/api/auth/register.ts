@@ -22,15 +22,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
 		const hashedPassword = await hash(password, 12);
 
-		const verificationToken = await sha256(email + Date.now().toString());
-
-		// create verification link that includes username and token
-
-		const url = `http://localhost:3000/api/verify/${username}&${verificationToken}`;
-		// send email with link
-
-		const mailRes = await sendMail(email, "Verify your account", url, name);
-
 		const result = await collection.insertOne({
 			username: username,
 			email: email,
@@ -38,8 +29,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 			name: name,
 			provider: "credentials",
 			favorites: [],
-			emailVerified: false,
-			emailVerification: verificationToken,
+			emailVerified: true,
 		});
 
 		res.status(200).json({ message: "User created" });

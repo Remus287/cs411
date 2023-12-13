@@ -1,0 +1,10 @@
+AAPL - apple
+MSFT - microsoft
+GOOGL - google
+AMZN - amazon
+NVDA - nvidia
+META - facebook
+BRK.B - berkshire hathaway class b stock
+TSLA - tesla
+LLY - Eli Lilly And Co
+V - visa

@@ -1,3 +1,6 @@
+# Video Walkthrough
+<a href='https://youtu.be/28TBK41mthk'>Video</a>
+
 # Project Workboard:
 
 - [x] = Complete

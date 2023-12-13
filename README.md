@@ -1,6 +1,6 @@
 # Video Walkthrough
-<a href='https://youtu.be/28TBK41mthk'>Video</a>
-
+<a href='https://youtu.be/28TBK41mthk'>Youtube Link</a>
+[Local Video Link](./CS411 Project Walkthrough - Made with Clipchamp.mp4)
 # Project Workboard:
 
 - [x] = Complete

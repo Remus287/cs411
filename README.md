@@ -1,6 +1,7 @@
 # Video Walkthrough
 <a href='https://youtu.be/28TBK41mthk'>Youtube Link</a>
-[Local Video Link](./CS411 Project Walkthrough - Made with Clipchamp.mp4)
+
+
 # Project Workboard:
 
 - [x] = Complete
@@ -32,7 +33,7 @@
    - [x] Set up a process to fetch news articles related to the selected stocks from a news API.
 
 8. **Sentiment Analysis**
-   - [-] ~~Store the sentiment analysis results in the database.~~
+   - [ ] ~~Store the sentiment analysis results in the database.~~
    - [x] Fetching with each API call, tied to stocknewsapi
 
 9. **Stock Prediction Algorithm**
